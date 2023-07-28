@@ -128,6 +128,8 @@ class BrushTicket(object):
                         sys.exit(1)
                     elif current_tr.find_by_tag('td')[self.seat_type_index].text == '无':
                         print('无票，继续尝试……')
+                    elif current_tr.find_by_tag('td')[self.seat_type_index].text == '候补':
+                        print('候补，继续尝试……')
                     else:
                         # 有票，尝试预订
                         print('刷到票了（余票数：' + str(current_tr.find_by_tag('td')[self.seat_type_index].text) + '），开始尝试预订……')
@@ -268,7 +270,8 @@ if __name__ == '__main__':
     #     receiver_email = input('预留邮箱不能为空，请重新输入：')
     # # 开始抢票
     # ticket = BrushTicket(user_name, password, passengers, from_time, from_station, to_station, number, seat_type, receiver_mobile, receiver_email)
-    # ticket = BrushTicket('wsxxl110', 'xxl8889802608', ['向显亮'], '2023-07-11', '%u676D%u5DDE%2CHZH', '%u6B66%u6C49%2CWHN', 'G2352', '二等座', '15732633722', '1107575936@qq.com')
+    # ticket = BrushTicket('wsxxl110', 'xxl8889802608', ['向显亮'], '2023-08-01', '%u5929%u95E8%u5357%2CTNN', '%u4E0A%u6D77%2CSHH', 'D3034', '二等座', '15732633722', '1107575936@qq.com')
+    # ticket.start_brush()
     root = Tk()                     # 创建窗口对象的背景色
                                     # 创建两个列表
     
